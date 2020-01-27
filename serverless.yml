@@ -1,6 +1,6 @@
 service: mytodo-app-backend
 provider:
-  name: aw
+  name: aws
   region: eu-west-1
   runtime: nodejs12.x
 
