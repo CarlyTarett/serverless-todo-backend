@@ -1,0 +1,26 @@
+service: mytodo-app-backend
+provider:
+  name: aw
+  region: eu-west-1
+  runtime: nodejs12.x
+
+functions:
+  tasks:
+    handler: handler.app
+    events:
+      - http:
+          method: get
+          path: tasks
+          cors: true
+      - http:
+          method: put
+          path: tasks/{id}
+          cors: true
+      - http:
+          method: post
+          path: tasks
+          cors: true
+      - http:
+          method: delete
+          path: tasks/{id}
+          cors: true
