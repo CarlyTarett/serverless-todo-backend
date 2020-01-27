@@ -7,8 +7,6 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// GET /developers
-
 app.get("/tasks", function (request, response) {
 
   console.log(request);
@@ -20,12 +18,10 @@ app.get("/tasks", function (request, response) {
 
     ]
   });
-
-
 });
 
-//post 
-app.post("/tasks/", function (request, response) {
+
+app.post("/tasks", function (request, response) {
 
   const newTask = request.body;
 
@@ -34,13 +30,9 @@ app.post("/tasks/", function (request, response) {
   });
 });
 
-//put
-// PUT /developers
+
+
 app.put("/tasks/:id", function (request, response) {
-  /*
-  // For sensitive data or larger pieces of data, I can use the request body
-  { name: "Fred", available: true, skills: "HTML and CSS" }
-  */
 
   const updatedTask = request.body;
   const id = request.params.id;
@@ -51,7 +43,6 @@ app.put("/tasks/:id", function (request, response) {
 });
 
 
-//delete
 app.delete("/tasks/:id", function (request, response) {
 
   const id = request.params.id;
@@ -60,6 +51,5 @@ app.delete("/tasks/:id", function (request, response) {
     message: 'Successfully deleted task ID ${id}'
   });
 });
-
 
 module.exports.app = serverlessHttp(app);
