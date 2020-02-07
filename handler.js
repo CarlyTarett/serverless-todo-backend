@@ -65,7 +65,7 @@ app.put("/tasks/:id", function(request, response) {
   const updatedTask = request.body;
   const id = request.params.id;
 
-  connection.query("UPDATE task SET ? WHERE taskId=?", [updatedTask, id], function(err, data){
+  connection.query("UPDATE task SET ? WHERE id=?", [updatedTask, id], function(err, data){
 
     if(err){
       response.status(500).json({
@@ -89,15 +89,18 @@ app.delete("/tasks/:id", function(request, response) {
 
     const id = request.params.id;
   
-      connection.query("Delete FROM task WHERE taskId = ?", [id], function(err, data){
-      if(err){
+  connection.query("Delete FROM task WHERE id = ?", [id], function(err, data){
+//connection.query("INSERT INTO comments (comment) values ( ?)", [id], function(err, data){
+ 
+    if(err){
           response.status(500).json({
               error: err
           })
       }
-      else {
+     else {
           response.sendStatus(200);
       };
+
   });
   
   });
