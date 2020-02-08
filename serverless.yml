@@ -27,7 +27,7 @@ functions:
       - http:
           method: delete
           path: tasks/{id}
-          cors: true          
+          cors: true
 # GET
 # dkfjkdsf.aws.amazon.com/developers
 
