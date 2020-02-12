@@ -42,6 +42,9 @@ app.get("/tasks", function(request, response) {
 app.post("/tasks", function(request, response) {
 
     const newTask = request.body;
+
+    console.log("XXXXXXXXXXXXdoing A CREATE XXXXXXXXXXXxx");
+
   
     connection.query("INSERT INTO task SET ?", [newTask], function(err, data){
   
@@ -62,8 +65,18 @@ app.post("/tasks", function(request, response) {
 // PUT /developers
 app.put("/tasks/:id", function(request, response) {
 
+
+  
   const updatedTask = request.body;
   const id = request.params.id;
+
+  console.log("XXXXXXXXXXXXXupdateXXXXXXXXXXXXxx");
+  console.log("id is :   ");
+  console.log(id);
+  console.log(updatedTask);
+
+  console.log("YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYy");
+
 
   connection.query("UPDATE task SET ? WHERE id=?", [updatedTask, id], function(err, data){
 
@@ -88,8 +101,19 @@ app.put("/tasks/:id", function(request, response) {
 app.delete("/tasks/:id", function(request, response) {
 
     const id = request.params.id;
+
+    
+  console.log("XXXXXXXXXXXXXdeleteXXXXXXXXXXXxx");
+  console.log("id is :   ");
+  console.log(id);
   
-  connection.query("Delete FROM task WHERE id = ?", [id], function(err, data){
+
+  console.log("YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYy");
+ 
+    
+connection.query("Delete FROM task WHERE id = 36", function(err, data){
+
+  //connection.query("Delete FROM task WHERE id = ?", [id], function(err, data){
 //connection.query("INSERT INTO comments (comment) values ( ?)", [id], function(err, data){
  
     if(err){
